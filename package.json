@@ -1,0 +1,35 @@
+{
+  "name": "sj.fdp",
+  "version": "0.0.1",
+  "description": "reimplementation of pdf.js",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seokgyo/sj.fdp.git"
+  },
+  "author": "seokgyo@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seokgyo/sj.fdp/issues"
+  },
+  "homepage": "https://github.com/seokgyo/sj.fdp#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
+  }
+}
