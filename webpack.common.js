@@ -8,13 +8,29 @@ module.exports = {
   entry: {
     main: './lib/index.js',
   },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'js.fdp',
       excludeChunks: ['worker'],
     }),
-    new WorkerPlugin(),
+    new WorkerPlugin({
+      globalObject: 'self',
+    }),
   ],
   output: {
     filename: '[name].bundle.js',
