@@ -7,6 +7,7 @@ const WorkerPlugin = require('worker-plugin');
 module.exports = {
   entry: {
     main: './lib/index.js',
+    experiments: './experiments/index.js',
   },
   module: {
     rules: [
@@ -16,7 +17,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: [
+               ["@babel/preset-env", { targets: { chrome: '80' } }]
+            ]
           }
         }
       }
@@ -25,8 +28,13 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
+      chunks: ['main'],
       title: 'js.fdp',
-      excludeChunks: ['worker'],
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['experiments'],
+      filename: 'experiments',
+      title: 'js.fdp',
     }),
     new WorkerPlugin({
       globalObject: 'self',
