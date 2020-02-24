@@ -1,7 +1,7 @@
 const readableStream = new ReadableStream({
   start(c) {
     console.log('start: desiredSize: ', c.desiredSize);
-    c.enqueue('start');
+    c.enqueue(['start1', 'start2']);
     console.log('start after enqueue: desiredSize: ', c.desiredSize);
   },
   pull(c) {
